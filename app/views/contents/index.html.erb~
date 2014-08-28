@@ -1,0 +1,42 @@
+<h1>Uploaded Files</h1>
+<p id="notice"><%= notice %>
+  <% if notice =~ /^E-mail was delivered successfully.*$/ %>
+   <span id="last"><%= link_to image_tag("no.png", width: '20', height: '20', id: 'l1'), root_path, remote: true %></span>
+  <% end %>
+</p>				
+<div id="sam">
+  <%= render :partial => 'form' %>
+  <%= link_to 'Back', root_path, id:'b1', remote: true %>
+</div>
+<div id='work'>
+</div>
+<div id="sample">
+    <div id="lite"></div>
+    <div id="lightboxes">
+      <%= link_to image_tag("no.png"), id: 'chk' %>
+      <div id="box"></div>
+    </div>
+  </div>
+  <div id="email-attach">
+   <%= form_tag "/sendmail" do %>
+    <%= label_tag :Email %>
+    <%= text_field_tag :emailid, "", id: 'em', :required => true %><br/><br/>
+    <%= label_tag :Body %>
+    <%= text_area_tag :bdy,"" %><br/><br/>
+    <%= text_field_tag :attach %>
+    <%= submit_tag "Send Attachment", id:'sub' %>
+  <% end %>
+  </div>
+  <%= link_to image_tag("load.gif", width: '70', height: '70'), '#', :id => "load" %>
+</div>
+<script>
+$(function(){
+$.ajax({
+	url: '/index_content',
+	type: 'GET',
+	success: function(data) {
+   $("#work").html(data);
+	}
+});
+});
+</script>

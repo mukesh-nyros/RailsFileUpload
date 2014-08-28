@@ -1,0 +1,49 @@
+<p id="s1"><%= link_to image_tag("add.png", width: '50', height: '50', margin: 'auto', :title =>"Add Files") + "Add Files","#", id: 'on' %></p>
+<div class="index">
+ 
+  <div id="Img">
+    <h4>Images</h4>
+    <% @contents.each do |content| %>
+      <% if content.path =~ /^.*\.(jpg|JPG|png|bmp|BMP|PNG|gif|GIF|jpeg|JPEG)$/ %>
+        <table>
+          <tr>
+            <td class = "lightbox"><%= link_to image_tag("/uploads/#{content.path}", :alt =>"/uploads/#{content.path}", width: '50', height: '50', :border=>0),'#', :remote => true %></td>
+            <td class="name"><%= "#{content.path}" %></td>
+            <td class="one"><%= link_to 'Delete', content, method: :delete, :remote => true, :class => 'delete_data' %></td>
+          </tr>
+        </table>
+      <% end %>
+    <% end %>
+  </div>
+  <br>
+  <div id="read">
+    <h4>PDF Files</h4>
+    <% @contents.each do |content| %>
+      <% if content.path =~ /^.*\.(pdf|PDF)$/ %>
+        <table>
+          <tr>
+            <td class = "lightbox"><%= link_to image_tag("/uploads/read.jpg", :alt =>"/uploads/#{content.path}", width: '50', height: '50'), '#', :id => "icon", :remote => true %></td>
+            <td class="name"><%= "#{content.path}" %></td>
+            <td class="one"><%= link_to 'Delete', content, method: :delete, :remote => true, :class => 'delete_data' %></td>
+          </tr>
+        </table>
+      <% end %>
+    <% end%>
+  </div>
+  <br>
+  <div id="word">
+    <h4>Documents</h4>
+    <% @contents.each do |content| %>
+      <% if content.path =~ /^.*\.(doc|DOC|docx|DOCX|odt|ODT)$/ %>
+        <table>
+          <tr>
+            <td class = "lightbox"><%= link_to image_tag("/uploads/word.png", :alt =>"/uploads/#{content.path}", width: '50', height: '50'), '#', :id => "icon", :remote => true %></td>
+            <td class="name"><%= "#{content.path}" %></td>
+            <td class="one"><%= link_to 'Delete', content, method: :delete, :remote => true, :class => 'delete_data' %></td>
+          </tr>
+        </table>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

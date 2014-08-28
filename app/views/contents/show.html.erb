@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Path</strong>
+</p>
+<% if @content.path =~ /^.*\.(jpg|JPG|png|PNG|gif|GIF|jpeg|JPEG)$/ %>
+<%= image_tag "/uploads/#{@content.path}", :title => "#{@content.path}" %>
+<% else %>
+<% if @content.path =~ /^.*\.pdf$/ %>
+<%= image_tag "/uploads/read.jpg", :title => "#{@content.path}" %>
+<% else %>
+<%= image_tag "/uploads/word.png", :title => "#{@content.path}" %>
+<% end %>
+<% end %>
+<%= link_to 'Edit', edit_content_path(@content) %> |
+<%= link_to 'Back', contents_path %>
+
+

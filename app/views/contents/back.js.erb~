@@ -1,0 +1,9 @@
+$.ajax({
+	url: 'contents_path',
+	type: 'GET',
+	success: function(data) {
+        $("#work").html(data);
+	}
+});
+
+
