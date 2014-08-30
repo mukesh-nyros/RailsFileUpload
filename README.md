@@ -1,4 +1,4 @@
-I would like you to create a sample app using CoffeeScript.
+I would like to create a sample app using CoffeeScript.
 
 Requirement:
 Generating Rails Application enabled with amazing File functions:
